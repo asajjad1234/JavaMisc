@@ -1,4 +1,4 @@
 # JavaMisc
 JavaMisc
 
-Please review README.pdf file in this directory for Code Challenge.
+Please review README.pdf file in this directory for Williams Sonoma Code Challenge.
