@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>Williams Sonoma Code Challenge</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h2>BACKGROUND</h2>
+Sometimes items cannot be shipped to certain zip codes, and the rules for these restrictions are stored as a series of ranges of 5 digit codes. <br>
+For example if the ranges are: <br>
+<br>
+[94133,94133] [94200,94299] [94600,94699]
+<br>
+Then the item can be shipped to zip code 94199, 94300, and 65532, but cannot be shipped to 94133, 94650, 94230, 94600, or 94299. <br>
+<br>
+Any item might be restricted based on multiple sets of these ranges obtained from multiple sources.<br>
+<h2>PROBLEM</h2>
+Given a collection of 5-digit ZIP code ranges (each range includes both their upper and lower bounds), <br>
+provide an algorithm that produces the minimum number of ranges required to represent the same restrictions as the input. <br>
+
+<h2>NOTES</h2>
+- The ranges above are just examples, your implementation should work for any set of arbitrary ranges <br>
+- Ranges may be provided in arbitrary order <br>
+- Ranges may or may not overlap <br>
+- Your solution will be evaluated on the correctness and the approach taken, and adherence to coding standards and best practices <br>
+
+<h2>EXAMPLES:</h2>
+If the input = [94133,94133] [94200,94299] [94600,94699] <br>
+Then the output should be = [94133,94133] [94200,94299] [94600,94699] <br>
+<br>
+If the input = [94133,94133] [94200,94299] [94226,94399] <br>
+Then the output should be = [94133,94133] [94200,94399] <br>
+<br>
+Evaluation Guidelines: <br>
+Your work will be evaluated against the following criteria: <br>
+- Successful implementation <br>
+- Efficiency of the implementation <br>
+- Design choices and overall code organization <br>
+- Code quality and best practices <br>
+
+<h2 style="color:#FF0000">SOLUTION</h2>
+<h3 style="color:#0000FF">Zip Codes</h3>
+A ZIP Code is a postal code used by the United States Postal Service (USPS) in a system it introduced in 1963. <br>
+The term ZIP is an acronym for Zone Improvement Plan. It was chosen to suggest that the mail travels more efficiently <br>
+and quickly (zipping along) when senders use the code in the postal address. The basic format consists of five digits.
+<br><br>
+In some states (for example Maine, Massachusetts etc) the first digit in the Zip Code is 0. Even though the Zip Code is actually<br>
+a number but the best data type to represent a Zip Code is a String in Java. It is a Catagorical data because the sum <br>
+of two Zip Codes is not meaningful. <br>
+<br>
+So, in order to validate you have to make sure that it is represented with 5 digits. <br>
+
+<h3 style="color:#0000FF">Assumptions</h3>
+1. The input is entered as is, with spaces between square brackets and zip code groups separated by commas. <br><br>
+
+2. We are checking only the validity of the ZipCodes. In other words, there may some combination of Zip Codes which <br>
+are semantically correct by definition (5 digits) but they may not be real valid zip codes. For example Zip Code 00000 satisfies <br>
+the condition to be a valid Zip Code because it has 5 digits. But, there is no city that has that Zip Code. <br><br>
+
+3. In a pair of Zip Codes, the lower bound is always lower than than upper bound. In other words, the input is going to contain <br>
+Zip Codes [95760,95790] but not like this [95790,95760].
+
+<h3 style="color:#0000FF">Test Cases</h3>
+<b>The following are examples of valid and invalid Zip Codes: </b><br>
+<h4 style="color:#00AABB">Valid ZipCodes</h4>
+<li>01060</li>
+<li>16938</li>
+<li>24534</li>
+<li>35207</li>
+<li>48529</li>
+<li>56146</li>
+<li>65077</li>
+<li>71276</li>
+<li>87418</li>
+<li>96821</li>
+
+<h4 style="color:#00AABB">Invalid ZipCodes</h4>
+<li>ABCDE</li>
+<li>!(@#*</li>
+<li>AB123</li>
+<li>394$$</li>
+<li>-1029</li>
+<li>empty string ""</li>
+<li>blank string 1 or more characters "     "</li>
+<li>1234</li>
+<br>
+<b>The following test data is used to test the code:</b> <br>
+
+<h4 style="color:#00AABB">Invalid ZipCodes Test Data</h4>
+<li>ABCDE</li>
+<li>!(@#*</li>
+<li>AB123</li>
+<li>394$$</li>
+<li>-1029</li>
+<li>empty string ""</li>
+<li>blank string 1 or more characters "     "</li>
+<li>1234</li>
+<br>
+<h4 style="color:#00AABB">Valid ZipCodes Test Data</h4>
+<b>Types of input Strings (In valid data):</b>
+
+<li><b><font color="red">Disjoint Intervals </font></b></li>
+Input String : [94133,94149] [94200,94299] [94600,94699] <br>
+Output String: [94133,94149] [94200,94299] [94600,94699] <br><br>
+
+<li><b><font color="red">Adjacent Intervals </font></b></li>
+Input String : <span>[95742,95743]</span> [94226,94669] <span>[95744,95760]</span> <br>
+Output String: [94226,94669] [95742,95743] [95744,95760] <br><br>
+
+<li><b><font color="red">Overlapped Intervals </font></b></li>
+Input String : [94133,94149] <span>[94200,94299] [94226,94399]</span><br>
+Output String: [94133,94149] [94200,94399] <br><br>
+Input String : <span>[95630,95742]</span> [94226,94669] <span>[95730, 99999]</span> [94133,94133] [94200,94229]<br>
+Output String: [94133,94133] [94200,94669] [95630,99999] <br><br>
+
+<li><b><font color="red">Enclosed Intervals </font></b></li>
+Input String : <span>[95630,95742]</span> [94226,94669] <span>[95700, 95740]</span> [94133,94133] [94200,94229]<br>
+Output String: [94133,94133] [94200,94669] [95630,95742] <br><br>
+
+
+<li><b><font color="red">Fully Enclosed Intervals</font></b></li>
+Input String : [95630,95742] [94226,94669] <span>[00000, 99999]</span> [94133,94133] [94200,94229]<br>
+Output String: [00000,99999] <br><br>
+Input String : [95630,95742] [95742,95743] [95744,95744] [94226,94669]  [94133,94133] <span>[00000, 99999]</span> [94200,94229] [01028,01034] [01007,01037] [01060,01065]<br>
+Output String: [00000,99999] <br><br>
+
+
+
+<h3 style="color:#0000FF">Sorting Method Type</h3>
+<li>Java Collections.sort() method uses merge sort. The complexity of merge sort is <b><i>O(nlogn)</i></b></li>
+
+<h3 style="color:#0000FF">Data Structures (Linked List)</h3>
+<li>Linked List data structure is used because the time complexity of accessing a node in the Linked List is <b><i>O(n)</i></b></li>
+
+<h3 style="color:#0000FF">Algorithm Complexity</h3>
+<li>The complexity of the overall algorithm is <b><i>O(nlogn)</i></b></li>
+
+<h3 style="color:#0000FF">Design Description</h3>
+The following is the class diagram of all the classes used in the code:
+<img src="ClassDiagram.PNG" alt="Test Cases Results">
+<h3 style="color:#0000FF">Design Patterns</h3>
+<li>The design pattern that is used in the code is Strategy Pattern.</li>
+
+<h3 style="color:#0000FF">How to run/test the code?</h3>
+<li>You can run the code as a Java Application (ZipCodeRangeOptimizerImpl). You can also test it using JUnit test cases.</li>
+
+<h3 style="color:#0000FF">Test Case Results</h3>
+There are 17 different Test cases to test the functionality of the Algorithm. <br><br>
+<img src="TestResults.PNG" alt="Test Cases Results">
+
+</body>
+</html>
