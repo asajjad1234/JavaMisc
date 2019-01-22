@@ -4,7 +4,7 @@
   <class id="1" language="java" name="com.williamssonoma.zipcode.service.ZipCodeRangeMergerImpl" project="ZipCodeRange" 
     file="/ZipCodeRange/src/main/java/com/williamssonoma/zipcode/service/ZipCodeRangeMergerImpl.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-728" y="124"/>    
+    <position height="-1" width="-1" x="-621" y="-10"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -14,7 +14,7 @@
   <class id="2" language="java" name="com.williamssonoma.zipcode.validator.ZipCodeRangeValidator" project="ZipCodeRange" 
     file="/ZipCodeRange/src/main/java/com/williamssonoma/zipcode/validator/ZipCodeRangeValidator.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-768" y="551"/>    
+    <position height="-1" width="-1" x="-763" y="188"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -24,7 +24,7 @@
   <class id="3" language="java" name="com.williamssonoma.zipcode.utils.ZipCodeRangeConstants" project="ZipCodeRange" 
     file="/ZipCodeRange/src/main/java/com/williamssonoma/zipcode/utils/ZipCodeRangeConstants.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-1008" y="164"/>    
+    <position height="-1" width="-1" x="-995" y="-10"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -34,7 +34,7 @@
   <class id="4" language="java" name="com.williamssonoma.zipcode.service.ZipCodeRangeTestClient" project="ZipCodeRange" 
     file="/ZipCodeRange/src/main/java/com/williamssonoma/zipcode/service/ZipCodeRangeTestClient.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-1016" y="323"/>    
+    <position height="-1" width="-1" x="-983" y="145"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -44,7 +44,7 @@
   <class id="5" language="java" name="com.williamssonoma.zipcode.model.ZipCodeRange" project="ZipCodeRange" 
     file="/ZipCodeRange/src/main/java/com/williamssonoma/zipcode/model/ZipCodeRange.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-1009" y="490"/>    
+    <position height="-1" width="-1" x="-986" y="309"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -54,7 +54,7 @@
   <class id="6" language="java" name="com.williamssonoma.zipcode.ZipCodeRangeMergerTest" project="ZipCodeRange" 
     file="/ZipCodeRange/src/test/java/com/williamssonoma/zipcode/ZipCodeRangeMergerTest.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-400" y="196"/>    
+    <position height="-1" width="-1" x="-289" y="202"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -64,7 +64,7 @@
   <interface id="7" language="java" name="com.williamssonoma.zipcode.service.ZipCodeRangeMerger" project="ZipCodeRange" 
     file="/ZipCodeRange/src/main/java/com/williamssonoma/zipcode/service/ZipCodeRangeMerger.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-430" y="551"/>    
+    <position height="-1" width="-1" x="-624" y="487"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -72,19 +72,27 @@
     </display>  
   </interface>  
   <association id="8">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="9" name="zipCodeRangeMerger"/>      
-      <multiplicity id="10" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="9" name="zipCodeRangeValidator">        
+        <position height="0" width="0" x="5" y="-363"/>      
+      </attribute>      
+      <multiplicity id="10" minimum="0" maximum="1">        
+        <position height="0" width="0" x="5" y="-363"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="11">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="12" name="zipCodeRangeValidator"/>      
-      <multiplicity id="13" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="12" name="zipCodeRangeMerger">        
+        <position height="0" width="0" x="-194" y="-64"/>      
+      </attribute>      
+      <multiplicity id="13" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-194" y="-64"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="14">    
